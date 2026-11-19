@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+class WajibGantiPassword
+{
+    public function handle(Request $request, Closure $next): Response
+    {
+        $user = $request->user();
+
+        if ($user && $user->wajib_ganti_password
+            && ! $request->routeIs('password.wajib', 'password.wajib.simpan', 'logout')) {
+            return redirect()->route('password.wajib');
+        }
+
+        return $next($request);
+    }
+}

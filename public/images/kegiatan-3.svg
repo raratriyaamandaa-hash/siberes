@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Sampah dipilah berdasarkan jenis">
+<rect width="400" height="300" fill="#E5F5E9"/>
+<rect y="236" width="400" height="64" fill="#bfe3c9"/>
+<g stroke="#10351d" stroke-width="3" stroke-linejoin="round">
+<rect x="48" y="118" width="84" height="12" rx="4" fill="#176B36"/>
+<path d="M54 130h72l-6 106H60z" fill="#2f9a57"/>
+<rect x="158" y="118" width="84" height="12" rx="4" fill="#b8821a"/>
+<path d="M164 130h72l-6 106h-60z" fill="#e0a82e"/>
+<rect x="268" y="118" width="84" height="12" rx="4" fill="#2b6f8a"/>
+<path d="M274 130h72l-6 106h-60z" fill="#3b9ac0"/>
+</g>
+<g fill="#fff">
+<circle cx="90" cy="184" r="16"/>
+<rect x="184" y="168" width="32" height="32" rx="4"/>
+<path d="M310 200l16-32 16 32z"/>
+</g>
+<circle cx="90" cy="84" r="9" fill="#8ccf9f" stroke="#176B36" stroke-width="3"/>
+<rect x="190" y="74" width="20" height="20" rx="3" fill="#fff" stroke="#b8821a" stroke-width="3"/>
+<path d="M326 96l-9-18h18z" fill="#fff" stroke="#2b6f8a" stroke-width="3"/>
+<text x="200" y="272" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600" fill="#176B36">Sampah dipilah per jenis</text>
+</svg>

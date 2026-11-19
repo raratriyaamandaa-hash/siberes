@@ -1,0 +1,41 @@
+<?php
+
+return [
+    'required' => ':attribute wajib diisi.',
+    'string' => ':attribute harus berupa teks.',
+    'email' => ':attribute harus berupa alamat email yang valid.',
+    'lowercase' => ':attribute harus huruf kecil.',
+    'unique' => ':attribute sudah dipakai.',
+    'confirmed' => 'Konfirmasi :attribute tidak cocok.',
+    'current_password' => 'Password saat ini salah.',
+    'numeric' => ':attribute harus berupa angka.',
+    'integer' => ':attribute harus berupa bilangan bulat.',
+    'date' => ':attribute bukan tanggal yang valid.',
+    'array' => ':attribute harus berupa daftar.',
+    'exists' => ':attribute yang dipilih tidak valid.',
+    'gt' => ['numeric' => ':attribute harus lebih besar dari :value.'],
+    'after_or_equal' => ':attribute harus tanggal yang sama atau setelah :date.',
+    'min' => [
+        'string' => ':attribute minimal :min karakter.',
+        'numeric' => ':attribute minimal :min.',
+        'array' => ':attribute minimal :min item.',
+    ],
+    'max' => [
+        'string' => ':attribute maksimal :max karakter.',
+        'numeric' => ':attribute maksimal :max.',
+    ],
+    'attributes' => [
+        'name' => 'Nama',
+        'email' => 'Email',
+        'alamat' => 'Alamat',
+        'telepon' => 'Nomor telepon',
+        'password' => 'Password',
+        'harga' => 'Harga',
+        'tanggal' => 'Tanggal',
+        'berat' => 'Berat',
+        'jenis' => 'Jenis sampah',
+        'nama' => 'Nama',
+        'dari' => 'Tanggal awal',
+        'sampai' => 'Tanggal akhir',
+    ],
+];

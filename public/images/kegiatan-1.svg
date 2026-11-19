@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Penimbangan sampah">
+<rect width="400" height="300" fill="#E5F5E9"/>
+<circle cx="330" cy="60" r="34" fill="#fff" opacity=".7"/>
+<rect y="236" width="400" height="64" fill="#bfe3c9"/>
+<rect x="110" y="214" width="180" height="22" rx="6" fill="#176B36"/>
+<rect x="125" y="204" width="150" height="10" rx="4" fill="#2f9a57"/>
+<rect x="188" y="150" width="24" height="54" fill="#176B36"/>
+<rect x="160" y="96" width="80" height="58" rx="10" fill="#fff" stroke="#176B36" stroke-width="4"/>
+<circle cx="200" cy="125" r="20" fill="#E5F5E9" stroke="#176B36" stroke-width="3"/>
+<path d="M200 125L212 113" stroke="#176B36" stroke-width="3" stroke-linecap="round"/>
+<path d="M128 204c-8-30 4-52 26-52s34 22 26 52z" fill="#8ccf9f" stroke="#176B36" stroke-width="3"/>
+<path d="M142 156l12-12 12 12" fill="none" stroke="#176B36" stroke-width="3" stroke-linecap="round"/>
+<path d="M222 204c-6-24 2-42 22-42s28 18 22 42z" fill="#b7e0c3" stroke="#176B36" stroke-width="3"/>
+<text x="200" y="272" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="600" fill="#176B36">Penimbangan sampah</text>
+</svg>
