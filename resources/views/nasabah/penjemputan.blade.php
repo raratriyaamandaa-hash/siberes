@@ -13,7 +13,7 @@
             @endif
 
             <div class="p-3 bg-green-100 text-green-800 rounded text-sm">
-                Petugas menjemput sampah setiap hari. Pilih tanggal yang Anda inginkan.
+                Pilih tanggal penjemputan. Untuk hari Sabtu dan Minggu, harap konfirmasi terlebih dahulu ke pengelola.
             </div>
 
             <div class="bg-white shadow sm:rounded-lg p-6">

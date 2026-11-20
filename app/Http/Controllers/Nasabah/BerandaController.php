@@ -35,7 +35,7 @@ class BerandaController extends Controller
 
     public function harga()
     {
-        return view('nasabah.harga', ['daftar' => JenisSampah::orderBy('nama')->get()]);
+        return view('nasabah.harga', ['daftar' => JenisSampah::orderBy('id')->get(), 'periode' => \App\Models\Pengaturan::ambil('periode_harga', config('profil.periode_harga'))]);
     }
 
     public function notifikasi()

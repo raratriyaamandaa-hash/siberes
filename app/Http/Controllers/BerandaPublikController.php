@@ -24,7 +24,8 @@ class BerandaPublikController extends Controller
         }
 
         return view('welcome', [
-            'jenis' => JenisSampah::orderBy('nama')->get(),
+            'jenis' => JenisSampah::orderBy('id')->get(),
+            'periodeHarga' => \App\Models\Pengaturan::ambil('periode_harga', config('profil.periode_harga')),
             'peringkat' => $peringkat,
         ]);
     }

@@ -9,8 +9,10 @@ return [
     'visi' => null,
     'misi' => [],
     'alamat' => null,
-    'telepon' => null,
-    'email' => null,
+    'telepon' => '081264680005',
+    'email' => 'banksampahnewnormal@gmail.com',
+    'instagram' => 'banksampahnewnormal.id',
+    'periode_harga' => 'November 2026',
     'jam' => null,
     // true = tampilkan peringkat nasabah di beranda, false = sembunyikan
     'tampil_peringkat' => true,

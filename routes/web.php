@@ -34,6 +34,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::post('nasabah/{user}/reset-password', [NasabahController::class, 'resetPassword'])->name('nasabah.reset');
     Route::delete('nasabah/{user}', [NasabahController::class, 'tolak'])->name('nasabah.tolak');
 
+    Route::post('jenis-sampah/harga', [JenisSampahController::class, 'perbaruiHarga'])->name('jenis-sampah.harga');
     Route::resource('jenis-sampah', JenisSampahController::class)
         ->only(['index', 'store', 'update', 'destroy'])
         ->parameters(['jenis-sampah' => 'jenis']);

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class JenisSampah extends Model
 {
-    protected $fillable = ['nama', 'harga'];
+    protected $fillable = ['nama', 'harga', 'kategori', 'keterangan'];
 }

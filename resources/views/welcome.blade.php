@@ -249,22 +249,12 @@
 <section id="harga" class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <h2 class="text-3xl font-bold">Jenis dan harga sampah</h2>
-        <p class="mt-2 text-gray-500">Harga per kilogram yang berlaku saat ini.</p>
-        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            @forelse ($jenis as $j)
-                <div class="flex items-center gap-4 border border-gray-200 rounded-xl p-5 hover:border-[#176B36] hover:-translate-y-0.5 transition">
-                    <div class="w-12 h-12 shrink-0 rounded-xl bg-[#E5F5E9] text-[#176B36] flex items-center justify-center">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{!! $ikon['leaf'] !!}</svg>
-                    </div>
-                    <div>
-                        <div class="font-semibold">{{ $j->nama }}</div>
-                        <div class="text-xl font-bold text-[#176B36]">Rp {{ number_format($j->harga, 0, ',', '.') }} <span class="text-sm font-normal text-gray-500">/ kg</span></div>
-                    </div>
-                </div>
-            @empty
-                <p class="text-gray-500">Daftar harga belum tersedia.</p>
-            @endforelse
-        </div>
+        <p class="mt-2 text-gray-500">Daftar harga nasabah {{ config('profil.nama') }}@if ($periodeHarga), {{ $periodeHarga }}@endif. Harga per kilogram.</p>
+        <div class="mt-8"><x-daftar-harga :jenis="$jenis" /></div>
+        <ul class="mt-4 text-sm text-gray-500 list-disc ps-5 space-y-1">
+            <li>Harga disesuaikan saat transaksi dan dapat berubah sewaktu-waktu.</li>
+            <li>Untuk hari Sabtu dan Minggu, penjemputan dan penerimaan sampah harap dikonfirmasi terlebih dahulu.</li>
+        </ul>
     </div>
 </section>
 
@@ -305,23 +295,37 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <h2 class="text-3xl font-bold">Kontak</h2>
         <p class="mt-2 text-gray-500">Hubungi pengelola bank sampah untuk informasi lebih lanjut.</p>
-        <div class="mt-8">
-            <div class="border border-gray-200 rounded-2xl p-6 grid gap-6 sm:grid-cols-2">
-                @forelse ($kontak as [$ik, $judul, $isi])
-                    <div class="flex gap-4">
-                        <div class="w-11 h-11 shrink-0 rounded-xl bg-[#E5F5E9] text-[#176B36] flex items-center justify-center">
-                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{!! $ikon[$ik] !!}</svg>
-                        </div>
-                        <div>
-                            <div class="text-sm text-gray-500">{{ $judul }}</div>
-                            <div class="font-medium">{{ $isi }}</div>
-                        </div>
+        @php
+            $tel = preg_replace('/\D+/', '', (string) config('profil.telepon'));
+            $wa = $tel ? '62'.ltrim($tel, '0') : null;
+            $ig = ltrim((string) config('profil.instagram'), '@');
+            $ikonIg = '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/>';
+            $daftarKontak = collect([
+                ['phone', 'Telepon / WhatsApp', config('profil.telepon'), $wa ? 'https://wa.me/'.$wa : null],
+                ['mail', 'Email', config('profil.email'), config('profil.email') ? 'mailto:'.config('profil.email') : null],
+                ['insta', 'Instagram', $ig ? '@'.$ig : null, $ig ? 'https://instagram.com/'.$ig : null],
+                ['pin', 'Alamat', config('profil.alamat'), null],
+                ['clock', 'Jam layanan', config('profil.jam'), null],
+            ])->filter(fn ($k) => filled($k[2]));
+        @endphp
+        <div class="mt-8 border border-gray-200 rounded-2xl p-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            @forelse ($daftarKontak as [$ik, $judul, $isi, $tautan])
+                <div class="flex gap-4">
+                    <div class="w-11 h-11 shrink-0 rounded-xl bg-[#E5F5E9] text-[#176B36] flex items-center justify-center">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{!! $ik === 'insta' ? $ikonIg : $ikon[$ik] !!}</svg>
                     </div>
-                @empty
-                    <p class="text-gray-500">Informasi kontak akan segera tersedia.</p>
-                @endforelse
-            </div>
-            
+                    <div class="min-w-0">
+                        <div class="text-sm text-gray-500">{{ $judul }}</div>
+                        @if ($tautan)
+                            <a href="{{ $tautan }}" target="_blank" rel="noopener" class="font-medium text-[#176B36] hover:underline break-words">{{ $isi }}</a>
+                        @else
+                            <div class="font-medium break-words">{{ $isi }}</div>
+                        @endif
+                    </div>
+                </div>
+            @empty
+                <p class="text-gray-500">Informasi kontak akan segera tersedia.</p>
+            @endforelse
         </div>
     </div>
 </section>
